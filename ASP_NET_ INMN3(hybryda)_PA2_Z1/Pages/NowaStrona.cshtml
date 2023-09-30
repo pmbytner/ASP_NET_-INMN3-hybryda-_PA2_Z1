@@ -1,0 +1,43 @@
+﻿@page
+@model ASP_NET__INMN3_hybryda__PA2_Z1.Pages.NowaStronaModel
+@{
+    ViewData["Title"] = "Nowa Strona";
+    ViewData["Jakieś dane"] = "Nasze dane";
+
+    string[] etykietyKolumn = { "Nazwa", "Populacja", "Powierzchnia" };
+    (string Nazwa, int Populacja, decimal Powierzchnia)[] miasta =
+    {
+        ("Gdańsk", 500000, 12.3m),
+        ("Gdynia", 250000, 15.6m),
+        ("Sopot", 30000, 7.5m),
+        ("Elbląg", 150000, 13.2m),
+        ("Olsztyn", 200000, 28.2m)
+    };
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Przykład nowej strony Razor budowanej od podstaw</p>
+
+<p>Tutaj wykorzystujemy słownik ViewData do przekazywania danych: @ViewData["Jakieś dane"]</p>
+
+<h1>Jakaś tabela</h1>
+
+<table>
+    <thead>
+        <tr>
+            @foreach(string etykieta in etykietyKolumn)
+                { <th>@etykieta</th> }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach((string Nazwa, int Populacja, decimal Powierzchnia) miasto in miasta)
+        {
+            <tr>
+                <td>@miasto.Nazwa</td>
+                <td>@miasto.Populacja</td>
+                <td>@miasto.Powierzchnia</td>
+            </tr>
+        }
+    </tbody>
+</table>
