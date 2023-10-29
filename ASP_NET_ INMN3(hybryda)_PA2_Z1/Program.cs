@@ -1,7 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using ASP_NET__INMN3_hybryda__PA2_Z1.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<PA2_Z1Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("PA2_Z1Context") ?? throw new InvalidOperationException("Connection string 'PA2_Z1Context' not found.")));
 
 var app = builder.Build();
 
