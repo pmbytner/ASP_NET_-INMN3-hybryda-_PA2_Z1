@@ -26,6 +26,9 @@
                 @Html.DisplayNameFor(model => model.Miasta[0].Województwo)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Miasta[0].Państwo)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Miasta[0].DataZałożenia)
             </th>
             <th></th>
@@ -45,6 +48,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => miasto.Województwo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => miasto.Państwo)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => miasto.DataZałożenia)
